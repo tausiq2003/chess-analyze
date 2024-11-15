@@ -1,27 +1,17 @@
-import Image from "next/image";
-import Input from "@/app/components/inputs";
-import Board from "@/app/components/board";
-import { fenToBoard } from "./lib/functions";
+import BoardContainer from "./components/boardcontainer";
+import Input from "./components/inputs";
 
 export default function Home() {
-    const a = fenToBoard(
-        "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-    );
-    console.log(a);
     return (
-        <>
-            <main>
-                <div>
-                    <div className="" id="board">
-                        <Board />
-                    </div>
-                    <div className="" id="dashboard">
-                        <div id="input">
-                            <Input />
-                        </div>
+        <div className="min-h-screen">
+            <main className="container mx-auto px-4 py-4 sm:py-8">
+                <div className="flex flex-col lg:flex-row gap-4 sm:gap-8 justify-center items-start">
+                    <BoardContainer />
+                    <div className=" max-lg:w-full lg:w-[35%]">
+                        <Input />
                     </div>
                 </div>
             </main>
-        </>
+        </div>
     );
 }
